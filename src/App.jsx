@@ -5,11 +5,8 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div>
-      <input placeholder="Enter your name" type="text" />
-      <h1>{count}</h1>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-      <button onClick={() => setCount(count - 1)}>Decrement</button>
+    <div className="flex h-screen flex-col justify-center items-center">
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>
     </div>
   );
 }
