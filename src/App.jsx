@@ -6,13 +6,24 @@ import Greeting from "./Greeting";
 
 function App() {
   const [count, setCount] = useState(0);
-  const [greeting, setGreeting] = useState(false);
+  const [greeting, setGreeting] = useState(true);
+  const [firstName, setFirstName] = useState("");
   const name = "John";
 
   return (
     <div className="flex space-y-5 h-screen flex-col justify-center items-center">
-      <h1 className="text-7xl font-bold underline">Hello world!</h1>
-      {greeting ? <Greeting name={name}></Greeting> : null}
+      <input
+        className="border border-black"
+        value={firstName} // ...force the input's value to match the state variable...
+        onChange={(e) => setFirstName(e.target.value)} // ... and update the state variable on any edits!
+      />
+      {firstName && greeting ? (
+        <Greeting name={firstName}></Greeting>
+      ) : (
+        <h1 className="text-7xl text-purple-600 font-bold underline">
+          Hello World!
+        </h1>
+      )}
       <h2 className="text-5xl">{count}</h2>
       <button
         onClick={() => setCount(count + 1)}
@@ -26,21 +37,6 @@ function App() {
       >
         Reset
       </button>
-      {!greeting ? (
-        <button
-          onClick={() => setGreeting(true)}
-          className="bg-purple-600 text-white rounded-lg p-5 text-2xl"
-        >
-          Show Greeting
-        </button>
-      ) : (
-        <button
-          onClick={() => setGreeting(false)}
-          className="bg-purple-600 text-white rounded-lg p-5 text-2xl"
-        >
-          Hide Greeting
-        </button>
-      )}
     </div>
   );
 }
