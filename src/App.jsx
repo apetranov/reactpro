@@ -26,18 +26,21 @@ function App() {
       >
         Reset
       </button>
-      <button
-        onClick={() => setGreeting(true)}
-        className="bg-purple-600 text-white rounded-lg p-5 text-2xl"
-      >
-        Greeting
-      </button>
-      <button
-        onClick={() => setGreeting(false)}
-        className="bg-purple-600 text-white rounded-lg p-5 text-2xl"
-      >
-        Hide Greeting
-      </button>
+      {!greeting ? (
+        <button
+          onClick={() => setGreeting(true)}
+          className="bg-purple-600 text-white rounded-lg p-5 text-2xl"
+        >
+          Show Greeting
+        </button>
+      ) : (
+        <button
+          onClick={() => setGreeting(false)}
+          className="bg-purple-600 text-white rounded-lg p-5 text-2xl"
+        >
+          Hide Greeting
+        </button>
+      )}
     </div>
   );
 }
